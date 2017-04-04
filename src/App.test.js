@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import App, { Search, Button, Table } from './App';
 
-
 describe('App', () => {
 
-it('renders without crashing', () => {
+it('renders', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
 });
@@ -15,11 +14,10 @@ it('renders without crashing', () => {
 test('snapshots', () => {
   const component = renderer.create(
     <App />
-  );
+    );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
-});
-
+  });
 });
 
 describe('Search', () => {
@@ -29,7 +27,7 @@ describe('Search', () => {
     ReactDOM.render(<Search>Search</Search>, div);
   });
 
-  test('sanpshots', () => {
+  test('snapshots', () => {
     const component = renderer.create(
       <Search>Search</Search>
     );
@@ -43,7 +41,7 @@ describe('Button', () => {
 
   it('renders', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Button>Give Me More</Button>, div;)
+    ReactDOM.render(<Button>Give Me More</Button>, div);
   });
   test('snapshots', () => {
     const component = renderer.create(
@@ -58,13 +56,17 @@ describe('Table', () => {
 
   const props = {
     list: [
-      { title: '1', author: '1', num_comments: 1, points: 2, objectID: 'y'},
-      { title: '2', author: '2', num_comments: 1, points: 2, objectID: 'z'},
+      { title: '1', author: '1', num_comments: 1, points: 2, objectID: 'y' },
+      { title: '2', author: '2', num_comments: 1, points: 2, objectID: 'z' },
     ],
+    sortKey: 'TITLE',
+    isSortReverse: false,
   };
 
-
-
+  it('renders', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Table { ...props } />, div);
+  });
 
   test('snapshots', () => {
     const component = renderer.create(
@@ -76,8 +78,10 @@ describe('Table', () => {
 
   it('shows two items in list', () => {
     const element = shallow(
-    <Table { ...props } />, div);
-  );
+    <Table { ...props } />
+    );
+
   expect(element.find('.table-row').length).toBe(2);
   });
+
 });
