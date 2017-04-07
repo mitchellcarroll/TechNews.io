@@ -2,6 +2,14 @@
 margin: 20px;
 }
 
+.html {
+  background-color: #333030;
+}
+
+#root {
+  background-color: #a3a1a1;
+}
+
 .interactions {
 text-align: center;
 }
@@ -30,7 +38,7 @@ line-height: 24px;
 white-space: nowrap;
 margin: 10px 0;
 padding: 10px;
-background: #ffffff;
+background: #e3dede;
 border: 1px solid #e3e3e3;
 }
 
@@ -62,7 +70,10 @@ border-radius: 0;
 border-bottom: 1px solid #38BB6C;
 }
 
+
 .heading {
-  font-size: 75px;
+  padding-top: 20px;
+  font-size: 55px;
   text-decoration: underline;
+  font-family: 'Press Start 2P', cursive;
 }
