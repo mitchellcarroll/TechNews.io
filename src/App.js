@@ -138,6 +138,7 @@ class App extends Component {
 
     return (
       <div className="page">
+      <div className="heading">TechNews</div>
         <div className="interactions">
           <Search
             value={searchTerm}
@@ -258,7 +259,8 @@ render() {
           </span>
         </div>
         { reverseSortedList.map(item =>
-        <div key={item.objectID} className="table-row">
+
+         <div key={item.objectID} className="table-row">
           <span style={{ width: '40%' }}>
             <a href={item.url}>{item.title}</a>
           </span>
@@ -280,8 +282,6 @@ render() {
             </Button>
           </span>
         </div>
-      )}
-
       )}
       </div>
     );

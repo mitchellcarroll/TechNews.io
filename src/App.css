@@ -61,3 +61,8 @@ cursor: pointer;
 border-radius: 0;
 border-bottom: 1px solid #38BB6C;
 }
+
+.heading {
+  font-size: 75px;
+  text-decoration: underline;
+}
